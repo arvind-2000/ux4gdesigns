@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:ux4gdesigns/app/accesibilityfeature/provider/textchangeprovider.dart';
 import 'package:ux4gdesigns/app/pages/shellwrapper.dart';
 
 import 'configs/appconfigs/appcinfig.dart';
@@ -13,11 +15,14 @@ class Ux4gDesings extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: appTheme,
-      title: appname,
-      debugShowCheckedModeBanner: false,
-      home: ShellWrapper(),
+    return MultiProvider(
+      providers: [ChangeNotifierProvider(create: (c) => TextChangeProvider())],
+      child: MaterialApp(
+        theme: appTheme,
+        title: appname,
+        debugShowCheckedModeBanner: false,
+        home: ShellWrapper(),
+      ),
     );
   }
 }

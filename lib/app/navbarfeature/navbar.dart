@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:ux4gdesigns/configs/appconfigs/appcinfig.dart';
-import 'package:ux4gdesigns/configs/colors/colors.dart';
 
 class NavBarTop extends StatelessWidget {
   const NavBarTop({super.key});
@@ -10,7 +9,7 @@ class NavBarTop extends StatelessWidget {
     final theme = Theme.of(context);
     return Container(
       padding: EdgeInsets.symmetric(vertical: 16),
-      color: Ux4gColorTheme.secondaryColor[100],
+      color: theme.colorScheme.surface,
       child: Center(
         child: ConstrainedBox(
           constraints: BoxConstraints(maxWidth: 1200),
@@ -21,11 +20,11 @@ class NavBarTop extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text("Home"),
+                    Text("Home", style: theme.textTheme.bodyMedium),
                     SizedBox(width: 16),
-                    Text("About"),
+                    Text("About", style: theme.textTheme.bodyMedium),
                     SizedBox(width: 16),
-                    Text('Contacts'),
+                    Text('Contacts', style: theme.textTheme.bodyMedium),
                   ],
                 ),
               ),
