@@ -23,10 +23,21 @@ class AccesibilityBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final textprovider = Provider.of<TextChangeProvider>(context);
+    final size = MediaQuery.of(context).size;
     return Container(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: [
+            Ux4gColorTheme.primarycolor[700]!,
+
+            Ux4gColorTheme.primarycolor,
+            Ux4gColorTheme.primarycolor[900]!,
+          ],
+        ),
+      ),
       height: 50,
       padding: EdgeInsets.all(16),
-      color: theme.colorScheme.primary,
+
       child: Center(
         child: ConstrainedBox(
           constraints: BoxConstraints(maxWidth: 1200),
