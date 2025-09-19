@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../configs/appconfigs/appcinfig.dart';
 import '../../configs/colors/colors.dart';
@@ -26,12 +27,34 @@ class TopBar extends StatelessWidget {
       actionsPadding: EdgeInsets.zero,
       centerTitle: ismobile || istablet ? false : true,
       title: ismobile || istablet
-          ? Text(appname, style: theme.textTheme.headlineSmall)
+          ? InkWell(
+              onTap: () {
+                context.go('/home');
+              },
+              child: Text(
+                appname.toUpperCase(),
+                style: theme.textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.bold),
+              ),
+            )
           : NavBarTop(
+              header: InkWell(
+                onTap: () {
+                  context.go('/home');
+                },
+                child: Text(
+                  appname.toUpperCase(),
+                  style: theme.textTheme.headlineMedium?.copyWith(fontWeight: FontWeight.bold),
+                ),
+              ),
               actions: [
                 OutlinedButton(onPressed: () {}, child: Text('Sign In')),
                 SizedBox(width: 8),
-                ElevatedButton(onPressed: () {}, child: Text("Sign Up")),
+                ElevatedButton(
+                  onPressed: () {
+                    context.go('/signup');
+                  },
+                  child: Text("Sign Up"),
+                ),
               ],
             ),
       titleSpacing: 0.0,
@@ -44,7 +67,12 @@ class TopBar extends StatelessWidget {
           ? [
               OutlinedButton(onPressed: () {}, child: Text('Sign In')),
               SizedBox(width: 8),
-              ElevatedButton(onPressed: () {}, child: Text("Sign Up")),
+              ElevatedButton(
+                onPressed: () {
+                  context.go('/signup');
+                },
+                child: Text("Sign Up"),
+              ),
               SizedBox(width: 16),
             ]
           : null,

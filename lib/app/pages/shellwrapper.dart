@@ -1,12 +1,12 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:ux4gdesigns/app/pages/landingpages/landingpageparent.dart';
 import 'package:ux4gdesigns/configs/colors/colors.dart';
 import 'package:ux4gdesigns/helpers/responsivehelpers/responsiveclass.dart';
 
-import 'landingpages/landingpageparent.dart';
-
 class ShellWrapper extends StatelessWidget {
-  const ShellWrapper({super.key});
-
+  const ShellWrapper({super.key, required this.child});
+  final Widget child;
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.sizeOf(context);
@@ -15,7 +15,20 @@ class ShellWrapper extends StatelessWidget {
 
     return Scaffold(
       drawer: ismobile || istablet ? Drawer() : null,
-      body: LandingPages(),
+      body: Stack(
+        children: [
+          LandingPages(child: child),
+          if (kDebugMode)
+            Positioned(
+              top: 0,
+              right: 0,
+              child: Material(
+                color: Colors.transparent,
+                child: HeightWidth(size: size),
+              ),
+            ),
+        ],
+      ),
 
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       floatingActionButton: UxFloatingButton(),
@@ -71,6 +84,46 @@ class _UxFloatingButtonState extends State<UxFloatingButton> {
               ],
             ),
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class HeightWidth extends StatefulWidget {
+  const HeightWidth({super.key, required this.size});
+
+  final Size size;
+
+  @override
+  State<HeightWidth> createState() => _HeightWidthState();
+}
+
+class _HeightWidthState extends State<HeightWidth> {
+  bool onhover = false;
+  @override
+  Widget build(BuildContext context) {
+    return MouseRegion(
+      onEnter: (e) => setState(() {
+        if (!onhover) {
+          setState(() {
+            onhover = true;
+          });
+        } else {}
+      }),
+      onExit: (e) => setState(() {
+        if (onhover) {
+          setState(() {
+            onhover = false;
+          });
+        }
+      }),
+      child: Container(
+        padding: EdgeInsets.symmetric(vertical: 4, horizontal: 16),
+        color: onhover ? Colors.transparent : Colors.white,
+        child: Text(
+          textAlign: TextAlign.end,
+          "(w/h): ${widget.size.width}/ ${widget.size.height} ",
         ),
       ),
     );

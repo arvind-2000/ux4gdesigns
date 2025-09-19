@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:ux4gdesigns/configs/appconfigs/appcinfig.dart';
 
 class NavBarTop extends StatelessWidget {
-  const NavBarTop({super.key, required this.actions});
+  const NavBarTop({super.key, required this.actions, required this.header});
   final List<Widget> actions;
+  final Widget header;
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -17,10 +17,7 @@ class NavBarTop extends StatelessWidget {
             child: Row(
               children: [
                 // Image.asset(logoimage, fit: BoxFit.contain, height: 60, width: 60),
-                Text(
-                  appname.toUpperCase(),
-                  style: theme.textTheme.headlineMedium?.copyWith(fontWeight: FontWeight.bold),
-                ),
+                header,
                 Expanded(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
