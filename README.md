@@ -1,16 +1,10 @@
 # ux4gdesigns
+<h2>Flutter implementation of UX4G Designs with minimal library.</h2>
 
-A new Flutter project.
+- [You can find the designs here . UX4G](https://www.ux4g.gov.in/guidelines-doc.php)
+<hr style="border:1px solid #ccc;"/>
 
-## Getting Started
+All components are made into features. In case you want to reuse the widgets just copy the feature and it is all done.
+For simple state management i use Provider. Feel free to play around.
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+These are made just for my usecase
