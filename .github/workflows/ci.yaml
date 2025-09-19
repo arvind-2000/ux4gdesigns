@@ -16,7 +16,7 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: "3.25.0" # or your version
+          flutter-version: "3.32.5" # or your version
 
       - name: Install dependencies
         run: flutter pub get
@@ -30,10 +30,10 @@ jobs:
       - name: Build Flutter Web
         run: flutter build web --release --pwa-strategy=none
 
-      # - name: Deploy to Firebase Hosting
-      #   uses: FirebaseExtended/action-hosting-deploy@v0
-      #   with:
-      #     repoToken: "${{ secrets.GITHUB_TOKEN }}"
-      #     firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}"
-      #     channelId: live
-      #     projectId: your-firebase-project-id
+      - name: Deploy to Firebase Hosting
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: "${{secrets.CI_ACTIONS}}"
+          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}"
+          channelId: live
+          projectId: ux4gdesigns
