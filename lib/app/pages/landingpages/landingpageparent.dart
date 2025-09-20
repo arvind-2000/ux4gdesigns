@@ -43,11 +43,22 @@ class _LandingPagesState extends State<LandingPages> {
                       ),
               ),
               TopBar(
+                actions: [
+                  OutlinedButton(onPressed: () {}, child: Text('Sign In')),
+                  SizedBox(width: 8),
+                  ElevatedButton(
+                    onPressed: () {
+                      context.go('/signup');
+                    },
+                    child: Text("Sign Up"),
+                  ),
+                ],
                 header: InkWell(
                   onTap: () {
                     context.go('/home');
                     animateScroll(0);
                   },
+
                   child: Text(
                     appname.toUpperCase(),
                     style: theme.textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.bold),

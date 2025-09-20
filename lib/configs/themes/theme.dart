@@ -6,7 +6,7 @@ final appTheme = ThemeData(
   appBarTheme: AppBarTheme(color: Ux4gColorTheme.secondaryColor[100]),
   outlinedButtonTheme: OutlinedButtonThemeData(
     style: ButtonStyle(
-      textStyle: WidgetStateTextStyle.resolveWith((b) => TextStyle(fontSize: 13)),
+      textStyle: WidgetStateTextStyle.resolveWith((b) => TextStyle(fontSize: 14)),
       padding: WidgetStateProperty.resolveWith(
         (v) => EdgeInsets.symmetric(vertical: 18, horizontal: 24),
       ),
@@ -25,7 +25,7 @@ final appTheme = ThemeData(
 
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ButtonStyle(
-      textStyle: WidgetStateTextStyle.resolveWith((b) => TextStyle(fontSize: 12)),
+      textStyle: WidgetStateTextStyle.resolveWith((b) => TextStyle(fontSize: 14)),
       padding: WidgetStateProperty.resolveWith(
         (v) => EdgeInsets.symmetric(vertical: 18, horizontal: 24),
       ),
